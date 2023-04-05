@@ -1,0 +1,22 @@
+    
+$file1 = Import-Csv -LiteralPath "C:\Users\???\Desktop\CCM.csv"
+$file2 = Import-Csv -LiteralPath "C:\Users\???\Desktop\EMASS.csv"
+$unmatchedRows = $null, $null
+$matchedRows = $null, $null
+
+foreach ($row1 in $file1){
+    $matchfound = $false
+    foreach ($row2 in $file2){
+
+ 
+                if ($row1.machineName -eq $row2.machineName){
+                    $matchfound = $true
+
+        }
+
+    }
+    if ($matchfound -eq $false){
+        $matchedRows += $row1}
+
+}
+$matchedRows
